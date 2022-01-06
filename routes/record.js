@@ -179,4 +179,48 @@ recordRoutes.route('/luminaires/add').post(function (req, response) {
   });
 });
 
+// Delete a record in chaises database
+recordRoutes.route('/chaises/:id').delete((req, response) => {
+  let db_connect = dbo.getDb('chaises');
+  let myquery = { _id: ObjectId(req.params.id) };
+  db_connect.collection('chaises').deleteOne(myquery, function (err, obj) {
+    if (err) throw err;
+    console.log('1 document deleted');
+    response.status(obj);
+  });
+});
+
+// Delete a record in canapes database
+recordRoutes.route('/canapes/:id').delete((req, response) => {
+  let db_connect = dbo.getDb('canapes');
+  let myquery = { _id: ObjectId(req.params.id) };
+  db_connect.collection('canapes').deleteOne(myquery, function (err, obj) {
+    if (err) throw err;
+    console.log('1 document deleted');
+    response.status(obj);
+  });
+});
+
+// Delete a record in luminaires database
+recordRoutes.route('/luminaires/:id').delete((req, response) => {
+  let db_connect = dbo.getDb('luminaires');
+  let myquery = { _id: ObjectId(req.params.id) };
+  db_connect.collection('luminaires').deleteOne(myquery, function (err, obj) {
+    if (err) throw err;
+    console.log('1 document deleted');
+    response.status(obj);
+  });
+});
+
+// Delete a record in rangements database
+recordRoutes.route('/rangements/:id').delete((req, response) => {
+  let db_connect = dbo.getDb('rangements');
+  let myquery = { _id: ObjectId(req.params.id) };
+  db_connect.collection('rangements').deleteOne(myquery, function (err, obj) {
+    if (err) throw err;
+    console.log('1 document deleted');
+    response.status(obj);
+  });
+});
+
 module.exports = recordRoutes;
