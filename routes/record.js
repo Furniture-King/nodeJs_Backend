@@ -238,7 +238,7 @@ recordRoutes.route('/chaises/update/:id').post(function (req, response) {
       bigText1: req.body.bigText1,
       bigText2: req.body.bigText2,
       price: Number(req.body.price),
-      rating: Number(req.body.rating),
+      stars: Number(req.body.stars),
       totalVote: Number(req.body.totalVote),
       stock: Number(req.body.stock),
       otherSrc: [req.body.src2, req.body.src3]
