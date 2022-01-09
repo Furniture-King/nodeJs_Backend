@@ -223,4 +223,34 @@ recordRoutes.route('/rangements/:id').delete((req, response) => {
   });
 });
 
+// Update a record in chaises DB by id.
+recordRoutes.route('/chaises/update/:id').post(function (req, response) {
+  let db_connect = dbo.getDb('chaises');
+  let myquery = {
+    _id: ObjectId(req.params.id)
+  };
+
+  let newvalues = {
+    $set: {
+      src: req.body.src,
+      title: req.body.title,
+      text: req.body.text,
+      bigText1: req.body.bigText1,
+      bigText2: req.body.bigText2,
+      price: Number(req.body.price),
+      rating: Number(req.body.rating),
+      totalVote: Number(req.body.totalVote),
+      stock: Number(req.body.stock),
+      otherSrc: [req.body.src2, req.body.src3]
+    }
+  };
+  db_connect
+    .collection('chaises')
+    .updateOne(myquery, newvalues, function (err, res) {
+      if (err) throw err;
+      console.log('1 document updated');
+      response.json(res);
+    });
+});
+
 module.exports = recordRoutes;
