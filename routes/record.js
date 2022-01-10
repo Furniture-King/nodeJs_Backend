@@ -253,4 +253,94 @@ recordRoutes.route('/chaises/update/:id').post(function (req, response) {
     });
 });
 
+// Update a record in canapes DB by id.
+recordRoutes.route('/canapes/update/:id').post(function (req, response) {
+  let db_connect = dbo.getDb('canapes');
+  let myquery = {
+    _id: ObjectId(req.params.id)
+  };
+
+  let newvalues = {
+    $set: {
+      src: req.body.src,
+      title: req.body.title,
+      text: req.body.text,
+      bigText1: req.body.bigText1,
+      bigText2: req.body.bigText2,
+      price: Number(req.body.price),
+      stars: Number(req.body.stars),
+      totalVote: Number(req.body.totalVote),
+      stock: Number(req.body.stock),
+      otherSrc: [req.body.src2, req.body.src3]
+    }
+  };
+  db_connect
+    .collection('canapes')
+    .updateOne(myquery, newvalues, function (err, res) {
+      if (err) throw err;
+      console.log('1 document updated');
+      response.json(res);
+    });
+});
+
+// Update a record in luminaires DB by id.
+recordRoutes.route('/luminaires/update/:id').post(function (req, response) {
+  let db_connect = dbo.getDb('luminaires');
+  let myquery = {
+    _id: ObjectId(req.params.id)
+  };
+
+  let newvalues = {
+    $set: {
+      src: req.body.src,
+      title: req.body.title,
+      text: req.body.text,
+      bigText1: req.body.bigText1,
+      bigText2: req.body.bigText2,
+      price: Number(req.body.price),
+      stars: Number(req.body.stars),
+      totalVote: Number(req.body.totalVote),
+      stock: Number(req.body.stock),
+      otherSrc: [req.body.src2, req.body.src3]
+    }
+  };
+  db_connect
+    .collection('luminaires')
+    .updateOne(myquery, newvalues, function (err, res) {
+      if (err) throw err;
+      console.log('1 document updated');
+      response.json(res);
+    });
+});
+
+// Update a record in rangements DB by id.
+recordRoutes.route('/rangements/update/:id').post(function (req, response) {
+  let db_connect = dbo.getDb('rangements');
+  let myquery = {
+    _id: ObjectId(req.params.id)
+  };
+
+  let newvalues = {
+    $set: {
+      src: req.body.src,
+      title: req.body.title,
+      text: req.body.text,
+      bigText1: req.body.bigText1,
+      bigText2: req.body.bigText2,
+      price: Number(req.body.price),
+      stars: Number(req.body.stars),
+      totalVote: Number(req.body.totalVote),
+      stock: Number(req.body.stock),
+      otherSrc: [req.body.src2, req.body.src3]
+    }
+  };
+  db_connect
+    .collection('rangements')
+    .updateOne(myquery, newvalues, function (err, res) {
+      if (err) throw err;
+      console.log('1 document updated');
+      response.json(res);
+    });
+});
+
 module.exports = recordRoutes;
