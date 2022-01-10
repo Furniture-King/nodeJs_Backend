@@ -93,18 +93,18 @@ recordRoutes.route('/luminaires').get(function (req, res) {
 
 // This section will help you create a new chaises record.
 recordRoutes.route('/chaises/add').post(function (req, response) {
-  let db_connect = dbo.getDb();
+  let db_connect = dbo.getDb('chaises');
   let myobj = {
-    src: req.body.furniture_src,
-    title: req.body.furniture_name,
-    text: req.body.furniture_text,
-    bigText1: req.body.furniture_bigText1,
-    bigText2: req.body.furniture_bigText2,
-    price: Number(req.body.furniture_price),
-    rating: Number(req.body.furniture_rating),
-    totalVote: Number(req.body.furniture_totalVote),
-    stock: Number(req.body.furniture_stock),
-    otherSrc: [req.body.furniture_src2, req.body.furniture_src3]
+    src: req.body.src,
+    title: req.body.title,
+    text: req.body.text,
+    bigText1: req.body.bigText1,
+    bigText2: req.body.bigText2,
+    price: Number(req.body.price),
+    stars: Number(req.body.stars),
+    totalVote: Number(req.body.totalVote),
+    stock: Number(req.body.stock),
+    otherSrc: [req.body.src2, req.body.src3]
   };
   // console.log(myobj);
   db_connect.collection('chaises').insertOne(myobj, function (err, res) {
@@ -115,18 +115,18 @@ recordRoutes.route('/chaises/add').post(function (req, response) {
 
 // This section will help you create a new canapes record.
 recordRoutes.route('/canapes/add').post(function (req, response) {
-  let db_connect = dbo.getDb();
+  let db_connect = dbo.getDb('canapes');
   let myobj = {
-    src: req.body.furniture_src,
-    title: req.body.furniture_name,
-    text: req.body.furniture_text,
-    bigText1: req.body.furniture_bigText1,
-    bigText2: req.body.furniture_bigText2,
-    price: Number(req.body.furniture_price),
-    rating: Number(req.body.furniture_rating),
-    totalVote: Number(req.body.furniture_totalVote),
-    stock: Number(req.body.furniture_stock),
-    otherSrc: [req.body.furniture_src2, req.body.furniture_src3]
+    src: req.body.src,
+    title: req.body.title,
+    text: req.body.text,
+    bigText1: req.body.bigText1,
+    bigText2: req.body.bigText2,
+    price: Number(req.body.price),
+    stars: Number(req.body.stars),
+    totalVote: Number(req.body.totalVote),
+    stock: Number(req.body.stock),
+    otherSrc: [req.body.src2, req.body.src3]
   };
   // console.log(myobj);
   db_connect.collection('canapes').insertOne(myobj, function (err, res) {
@@ -137,18 +137,18 @@ recordRoutes.route('/canapes/add').post(function (req, response) {
 
 // This section will help you create a new rangements record.
 recordRoutes.route('/rangements/add').post(function (req, response) {
-  let db_connect = dbo.getDb();
+  let db_connect = dbo.getDb('rangements');
   let myobj = {
-    src: req.body.furniture_src,
-    title: req.body.furniture_name,
-    text: req.body.furniture_text,
-    bigText1: req.body.furniture_bigText1,
-    bigText2: req.body.furniture_bigText2,
-    price: Number(req.body.furniture_price),
-    rating: Number(req.body.furniture_rating),
-    totalVote: Number(req.body.furniture_totalVote),
-    stock: Number(req.body.furniture_stock),
-    otherSrc: [req.body.furniture_src2, req.body.furniture_src3]
+    src: req.body.src,
+    title: req.body.title,
+    text: req.body.text,
+    bigText1: req.body.bigText1,
+    bigText2: req.body.bigText2,
+    price: Number(req.body.price),
+    stars: Number(req.body.stars),
+    totalVote: Number(req.body.totalVote),
+    stock: Number(req.body.stock),
+    otherSrc: [req.body.src2, req.body.src3]
   };
   // console.log(myobj);
   db_connect.collection('rangements').insertOne(myobj, function (err, res) {
@@ -159,18 +159,18 @@ recordRoutes.route('/rangements/add').post(function (req, response) {
 
 // This section will help you create a new luminaires record.
 recordRoutes.route('/luminaires/add').post(function (req, response) {
-  let db_connect = dbo.getDb();
+  let db_connect = dbo.getDb('luminaires');
   let myobj = {
-    src: req.body.furniture_src,
-    title: req.body.furniture_name,
-    text: req.body.furniture_text,
-    bigText1: req.body.furniture_bigText1,
-    bigText2: req.body.furniture_bigText2,
-    price: Number(req.body.furniture_price),
-    rating: Number(req.body.furniture_rating),
-    totalVote: Number(req.body.furniture_totalVote),
-    stock: Number(req.body.furniture_stock),
-    otherSrc: [req.body.furniture_src2, req.body.furniture_src3]
+    src: req.body.src,
+    title: req.body.title,
+    text: req.body.text,
+    bigText1: req.body.bigText1,
+    bigText2: req.body.bigText2,
+    price: Number(req.body.price),
+    stars: Number(req.body.stars),
+    totalVote: Number(req.body.totalVote),
+    stock: Number(req.body.stock),
+    otherSrc: [req.body.src2, req.body.src3]
   };
   // console.log(myobj);
   db_connect.collection('luminaires').insertOne(myobj, function (err, res) {
