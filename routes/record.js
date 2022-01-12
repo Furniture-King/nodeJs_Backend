@@ -44,11 +44,12 @@ recordRoutes.route('/rangements/:id').get(function (req, res) {
 });
 
 // get a list of all chaises
-recordRoutes.route('/chaises').get(function (req, res) {
+recordRoutes.route('/chaises/').get(function (req, res) {
   let db_connect = dbo.getDb('chaises');
   db_connect
     .collection('chaises')
-    .find({})
+    // .find({})
+    .aggregate([{ $sort: { price: 1, title: 1, stars: 1, totalVote: 1 } }])
     .toArray(function (err, result) {
       if (err) throw err;
       res.json(result);
